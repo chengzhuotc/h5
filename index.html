@@ -1,111 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="format-detection" content="telephone=no" />
-	<title>Document</title>
+<title> canvas 实例 </title>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
 </head>
-<style type="text/css" media="screen">
-  html,body{
-  	height: 100%;
-  	margin: 0;
-  	padding: 0;
-  }	
-  .fanzao{
-  	position: absolute;
-  	bottom: 0px;
-  	width: 100%;
-  	height: 100px;
-  	background-color: #000;
-  	color: #fff
-  }
-  .naoxin{
-    height: 100%;
-    overflow-y: scroll;
-    padding-bottom: 140px;
-    box-sizing: border-box;
-  }
-</style>
 <body>
-	<div class="fanzao">
-		<input type="text"></div>
-	<div class="naoxin">
-		<div class="naoxin-cont">
-			<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>
-		<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我2222222222222222222222
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我
-	</div>	<div>
-		结束
-	</div>
-		</div>
-	</div>
+<canvas id="myCanvas" width="600" height="150">您的浏览器不支持canvas！</canvas><br/>
 
+<script type="text/javascript">
+
+function DrowProcess(x,y,radius,process,backColor,proColor,fontColor){
+  var canvas = document.getElementById('myCanvas');
+
+  if (canvas.getContext) {
+    var cts = canvas.getContext('2d');
+  }else{
+    return;
+  }
+  cts.clearRect(0,0,600,150);
+  //在中间写字 
+  cts.font = "bold 9pt Arial";  
+  cts.fillStyle = fontColor;  
+  cts.textAlign = 'center';  
+  cts.textBaseline = 'middle';  
+  cts.moveTo(x, y);  
+  cts.fillText(process+"%", x, y);  
+  
+}
+bfb = 0;
+time=0;
+function Start(){
+  DrowProcess(60,60,55,bfb,'#ddd','#6495ED','#6495ED');
+  
+  t = setTimeout(Start,500);
+  if(bfb>=35){
+    clearTimeout(t);
+    bfb=0;
+    return;
+  }
+  bfb+=1;
+}
+Start();
+</script>
 </body>
 </html>
+
